@@ -10,4 +10,19 @@ class BlogPost extends Model
 {
     use HasFactory;
     use HasUlids;
+
+    /**
+     * 
+     */
+    public string $title;
+
+    /**
+     * 
+     */
+    public string $content;
+
+    /**
+     * 
+     */
+    public string $category;
 }
