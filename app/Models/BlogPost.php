@@ -11,18 +11,25 @@ class BlogPost extends Model
     use HasFactory;
     use HasUlids;
 
-    /**
-     * 
-     */
-    public string $title;
+    // /**
+    //  * 
+    //  */
+    // public string $title;
 
-    /**
-     * 
-     */
-    public string $content;
+    // /**
+    //  * 
+    //  */
+    // public string $content;
 
-    /**
-     * 
-     */
-    public string $category;
+    // /**
+    //  * 
+    //  */
+    // public string $category;
+
+
+    protected $fillable = [
+        'title',
+        'content',
+        'category',
+    ];
 }
