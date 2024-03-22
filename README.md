@@ -15,3 +15,7 @@ Lancer le serveur de dev :
 Lancer une commande dans le serveur de dev en éxécution :
 
     docker exec -it app_dev_server CMD ARGS
+
+Reconstruire la DB + données de tests
+
+    docker run --rm -it -v .:/app app_dev php artisan migrate:fresh --seed
