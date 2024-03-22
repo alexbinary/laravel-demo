@@ -2,7 +2,11 @@ FROM debian:bookworm
 
 # Install php
 
-RUN apt-get update && apt-get install php zip unzip php-zip curl php-curl php-xml php-dom -y
+RUN apt-get update && apt-get install -y \
+    php php-xml php-dom php-mbstring php-intl \
+    zip unzip php-zip \
+    curl php-curl \
+    sqlite3 php8.2-sqlite
 
 # Install Composer
 
