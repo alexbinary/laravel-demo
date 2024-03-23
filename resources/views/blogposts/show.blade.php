@@ -1,6 +1,8 @@
 <html>
 
 <body>
+    <a href="{{ route('blogposts.index') }}">Home</a>
+
     <h1>{{ $post->title }}</h1>
     <p>Category: {{ $post->category }}</p>
 

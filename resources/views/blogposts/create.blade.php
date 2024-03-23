@@ -1,6 +1,8 @@
 <html>
 
 <body>
+    <a href="{{ route('blogposts.index') }}">Home</a>
+
     <h1>New post</h1>
 
     <form action="{{ route('blogposts.store') }}" method="POST">
