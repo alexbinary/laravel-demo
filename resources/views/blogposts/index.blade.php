@@ -8,6 +8,8 @@
     @empty
         <p>No posts</p>
     @endforelse
+
+    <p><a href="{{ route('blogposts.create') }}">New post</a></p>
 </body>
 
 </html>

@@ -22,7 +22,7 @@ class BlogPostController extends Controller
      */
     public function create()
     {
-        //
+        return view('blogposts.create');
     }
 
     /**
@@ -30,7 +30,11 @@ class BlogPostController extends Controller
      */
     public function store(StoreBlogPostRequest $request)
     {
-        //
+        $d = $request->only('title', 'category', 'content');
+
+        $post = BlogPost::create($d);
+
+        return redirect()->route('blogposts.show', ['blogpost' => $post]);
     }
 
     /**
