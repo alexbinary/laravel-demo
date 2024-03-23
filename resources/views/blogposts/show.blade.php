@@ -13,6 +13,7 @@
         @method('delete')
         @csrf
     </form>
+    <a href="{{ route('blogposts.edit', ['blogpost' => $post]) }}">Edit</a>
 </body>
 
 </html>

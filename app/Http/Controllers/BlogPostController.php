@@ -48,17 +48,24 @@ class BlogPostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(BlogPost $blogPost)
+    public function edit(BlogPost $blogpost)
     {
-        //
+        return view('blogposts.edit', ['post' => $blogpost]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBlogPostRequest $request, BlogPost $blogPost)
+    public function update(UpdateBlogPostRequest $request, BlogPost $blogpost)
     {
-        //
+        $d = $request->only('title', 'category', 'content');
+
+        $blogpost->title = $d["title"];
+        $blogpost->category = $d["category"];
+        $blogpost->content = $d["content"];
+        $blogpost->save();
+
+        return redirect()->route('blogposts.show', ['blogpost' => $blogpost]);
     }
 
     /**

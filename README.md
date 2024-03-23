@@ -15,6 +15,13 @@ Lancer le serveur de dev :
 
 # Commandes utiles
 
+Lister les routes :
+
+    docker run --rm -it -v .:/app app_dev php artisan route:list --except-vendor
+
+
+# Autres commandes
+
 Lancer une commande dans l'image Docker de dev :
 
     docker run --rm -it -v .:/app app_dev CMD ARGS
