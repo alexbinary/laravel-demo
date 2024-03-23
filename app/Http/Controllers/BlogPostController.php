@@ -31,8 +31,10 @@ class BlogPostController extends Controller
     public function store(StoreBlogPostRequest $request)
     {
         $d = $request->only('title', 'category', 'content');
+        $pict = $request->file('picture');
 
-        $post = BlogPost::create($d);
+        $path = $pict->store("blogposts_pictures", 'public');
+        $post = BlogPost::create($d + ['picture' => $path]);
 
         return redirect()->route('blogposts.show', ['blogpost' => $post]);
     }

@@ -20,6 +20,7 @@ class BlogPostFactory extends Factory
             'title' => fake()->sentence(),
             'content' => fake()->paragraphs(3, true),
             'category' => fake()->word(),
+            'picture' => fake()->word(),
         ];
     }
 }

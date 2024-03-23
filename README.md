@@ -8,10 +8,14 @@ Reconstruire la DB + données de tests
 
     docker run --rm -it -v .:/app app_dev php artisan migrate:fresh --seed
     
+Lier les fichiers publics :
+
+    docker run --rm -it -v .:/app app_dev php artisan storage:link
+    
 Lancer le serveur de dev :
 
     docker run --rm -it -v .:/app -p 8000:8000 --name app_dev_server app_dev php artisan serve --host=0.0.0.0 
-
+    
 
 # Commandes utiles
 

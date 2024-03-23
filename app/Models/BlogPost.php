@@ -15,5 +15,6 @@ class BlogPost extends Model
         'title',
         'content',
         'category',
+        'picture',
     ];
 }
