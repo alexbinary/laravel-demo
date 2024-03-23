@@ -65,6 +65,14 @@ class BlogPostController extends Controller
         $blogpost->title = $d["title"];
         $blogpost->category = $d["category"];
         $blogpost->content = $d["content"];
+
+        if ($request->hasFile('picture')) {
+            
+            $pict = $request->file('picture');
+            $path = $pict->store("blogposts_pictures", 'public');
+            $blogpost->picture = $path;
+        }
+
         $blogpost->save();
 
         return redirect()->route('blogposts.show', ['blogpost' => $blogpost]);
