@@ -30,11 +30,21 @@ class BlogPostController extends Controller
      */
     public function store(StoreBlogPostRequest $request)
     {
-        $d = $request->only('title', 'category', 'content');
-        $pict = $request->file('picture');
+        $validated = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'category' => 'required',
+        ]);
 
-        $path = $pict->store("blogposts_pictures", 'public');
-        $post = BlogPost::create($d + ['picture' => $path]);
+        $d = $request->only('title', 'category', 'content');
+        if ($request->hasFile('picture')) {
+
+            $pict = $request->file('picture');
+            $path = $pict->store("blogposts_pictures", 'public');
+            $d += ['picture' => $path];
+        }
+
+        $post = BlogPost::create($d);
 
         return redirect()->route('blogposts.show', ['blogpost' => $post]);
     }
@@ -60,6 +70,12 @@ class BlogPostController extends Controller
      */
     public function update(UpdateBlogPostRequest $request, BlogPost $blogpost)
     {
+        $validated = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'category' => 'required',
+        ]);
+        
         $d = $request->only('title', 'category', 'content');
 
         $blogpost->title = $d["title"];
@@ -67,7 +83,7 @@ class BlogPostController extends Controller
         $blogpost->content = $d["content"];
 
         if ($request->hasFile('picture')) {
-            
+
             $pict = $request->file('picture');
             $path = $pict->store("blogposts_pictures", 'public');
             $blogpost->picture = $path;

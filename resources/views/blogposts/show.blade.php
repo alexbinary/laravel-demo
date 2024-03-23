@@ -3,7 +3,9 @@
 <body>
     <a href="{{ route('blogposts.index') }}">Home</a>
 
-    <p><img src="{{ asset('storage/' . $post->picture) }}" width=200 /></p>
+    @if ($post->picture)
+        <p><img src="{{ asset('storage/' . $post->picture) }}" width=200 /></p>
+    @endif
 
     <h1>{{ $post->title }}</h1>
     <p>Category: {{ $post->category }}</p>
