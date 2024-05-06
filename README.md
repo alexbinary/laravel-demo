@@ -12,9 +12,13 @@ Lier les fichiers publics :
 
     docker run --rm -it -v .:/app app_dev php artisan storage:link
     
-Lancer le serveur de dev :
+Lancer le serveur back :
 
-    docker run --rm -it -v .:/app -p 8000:8000 --name app_dev_server app_dev php artisan serve --host=0.0.0.0 
+    docker run --rm -it -v .:/app -p 8000:8000 -p 5173:5173 --name app_dev_server app_dev php artisan serve --host=0.0.0.0
+
+Lancer le serveur front :
+
+    docker exec -it app_dev_server npm run dev
     
 
 # Commandes utiles

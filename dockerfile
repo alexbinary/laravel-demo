@@ -1,12 +1,13 @@
 FROM debian:bookworm
 
-# Install php
+# Install php & node
 
 RUN apt-get update && apt-get install -y \
     php php-xml php-dom php-mbstring php-intl \
     zip unzip php-zip \
     curl php-curl \
-    sqlite3 php8.2-sqlite
+    sqlite3 php8.2-sqlite \
+    nodejs npm
 
 # Install Composer
 
