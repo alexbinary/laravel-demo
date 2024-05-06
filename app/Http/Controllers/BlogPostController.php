@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests\UpdateBlogPostRequest;
 use App\Models\BlogPost;
+use Inertia\Inertia;
 
 class BlogPostController extends Controller
 {
@@ -14,7 +15,9 @@ class BlogPostController extends Controller
     public function index()
     {
         $posts = BlogPost::all();
-        return view('blogposts.index', ['posts' => $posts]);
+        return Inertia::render('BlogPosts/Index', [
+            'posts' => $posts,
+        ]);
     }
 
     /**
@@ -22,7 +25,7 @@ class BlogPostController extends Controller
      */
     public function create()
     {
-        return view('blogposts.create');
+        return Inertia::render('BlogPosts/Create');
     }
 
     /**
@@ -54,7 +57,10 @@ class BlogPostController extends Controller
      */
     public function show(BlogPost $blogpost)
     {
-        return view('blogposts.show', ['post' => $blogpost]);
+        return Inertia::render('BlogPosts/Show', [
+            'post' => $blogpost,
+            'picture_url' => $blogpost->picture ? asset('storage/' . $blogpost->picture) : null,
+        ]);
     }
 
     /**
@@ -62,7 +68,9 @@ class BlogPostController extends Controller
      */
     public function edit(BlogPost $blogpost)
     {
-        return view('blogposts.edit', ['post' => $blogpost]);
+        return Inertia::render('BlogPosts/Edit', [
+            'post' => $blogpost,
+        ]);
     }
 
     /**
