@@ -19,6 +19,10 @@ Lancer le serveur back :
 Lancer le serveur front :
 
     docker exec -it app_dev_server npm run dev
+
+Lancer la compilation tailwind :
+
+    docker exec -it app_dev_server npx tailwindcss -i ./resources/css/app.in.css -o ./resources/css/app.css --watch
     
 
 # Commandes utiles
