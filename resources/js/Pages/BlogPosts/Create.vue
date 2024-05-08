@@ -3,6 +3,7 @@ import { Head } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3'
 import { useForm } from '@inertiajs/vue3'
 import Layout from '../Layout.vue'
+import Title from '../Title.vue'
 
 const form = useForm({
   title: null,
@@ -20,7 +21,7 @@ const form = useForm({
             <Link :href="$route('blogposts.index')" class="text-gray-500">< Home</Link>
         </p>
 
-        <h1 class="text-3xl mb-4 font-bold">New post</h1>
+        <Title>New post</Title>
 
         <form @submit.prevent="form.post($route('blogposts.store'))">
 

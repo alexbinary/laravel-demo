@@ -3,6 +3,7 @@ import { Head } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3'
 import { router } from '@inertiajs/vue3'
 import Layout from '../Layout.vue'
+import Title from '../Title.vue'
 
 const props = defineProps({ post: Object, picture_url: String })
 
@@ -21,7 +22,7 @@ function del() {
 
         <p v-if="picture_url"><img :src="picture_url" width=200 /></p>
 
-        <h1 class="text-3xl mb-4 font-bold">{{ post.title }}</h1>
+        <Title>{{ post.title }}</Title>
         <p class="text-gray-500 mb-2">Category: {{ post.category }}</p>
 
         <p>{{ post.content }}</p>

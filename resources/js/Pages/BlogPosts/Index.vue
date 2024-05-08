@@ -2,6 +2,7 @@
 import { Head } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3'
 import Layout from '../Layout.vue'
+import Title from '../Title.vue'
 
 defineProps({ posts: Array })
 </script>
@@ -9,9 +10,7 @@ defineProps({ posts: Array })
 <template>
   <Head title="Blog Posts" />
   <Layout>
-    <h1 class="text-3xl mb-4 font-bold">
-      Hello, Blog posts
-    </h1>
+    <Title>Hello, Blog posts</Title>
 
     <ul class="flex flex-wrap justify-start gap-4 mb-5">
       <li v-for="post in posts" class="w-80 border border-gray-200 bg-gray-50 p-2 rounded">
