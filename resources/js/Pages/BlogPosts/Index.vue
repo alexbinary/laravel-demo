@@ -13,9 +13,11 @@ defineProps({ posts: Array })
     <Title>Hello, Blog posts</Title>
 
     <ul class="flex flex-wrap justify-start gap-4 mb-5">
-      <li v-for="post in posts" class="w-80 border border-gray-200 bg-gray-50 p-2 rounded">
+      <li v-for="post in posts" class="w-80 border border-gray-200 bg-gray-50 p-4 rounded group hover:shadow">
         <Link :href="$route('blogposts.show', {blogpost: post})">
-          {{ post.title }}
+          <p class="font-bold text-xl mb-2 line-clamp-2">{{ post.title }}</p>
+          <p class="text-gray-500 line-clamp-4">{{ post.content }}</p>
+          <p class="mt-3 text-right group-hover:text-blue-800">Read more</p>
         </Link>
       </li>
     </ul>
