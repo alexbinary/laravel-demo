@@ -1,13 +1,14 @@
 <script setup>
 import { Head } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3'
+import Layout from '../Layout.vue'
 
 defineProps({ posts: Array })
 </script>
 
 <template>
   <Head title="Blog Posts" />
-  <div class="p-4">
+  <Layout>
     <h1 class="text-3xl mb-4 font-bold">
       Hello, Blog posts
     </h1>
@@ -23,10 +24,10 @@ defineProps({ posts: Array })
 
     <p class="mt-4">
       <Link :href="$route('blogposts.create')"
-             class="border border-gray-400 p-2 rounded-md bg-gray-200
+            class="border border-gray-400 p-2 rounded-md bg-gray-200
                     hover:bg-gray-300">
         New post
       </Link>
     </p>
-  </div>
+  </Layout>
 </template>

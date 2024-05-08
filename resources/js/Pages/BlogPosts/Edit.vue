@@ -2,6 +2,7 @@
 import { Head } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3'
 import { useForm } from '@inertiajs/vue3'
+import Layout from '../Layout.vue'
 
 const { post } = defineProps({ post: Object })
 
@@ -17,14 +18,13 @@ const form = useForm({
 
 <template>
     <Head title="Edit post" />
-    
-    <div class="p-4">
+    <Layout>
         <p class="mb-4">
             <Link :href="$route('blogposts.index')" class="text-gray-500">< Home</Link>
         </p>
 
         <h1 class="text-3xl mb-4 font-bold">Edit post</h1>
-
+        
         <form @submit.prevent="form.post($route('blogposts.update', { blogpost: post }))">
 
             <div class="grid">
@@ -56,7 +56,5 @@ const form = useForm({
             
             <input type="submit" value="Submit" class="border border-gray-400 p-2 rounded-md bg-gray-200 hover:bg-gray-300 mt-4">
         </form>
-
-    </div>
-
+    </Layout>
 </template>

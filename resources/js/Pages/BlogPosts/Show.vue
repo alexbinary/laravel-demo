@@ -2,6 +2,7 @@
 import { Head } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3'
 import { router } from '@inertiajs/vue3'
+import Layout from '../Layout.vue'
 
 const props = defineProps({ post: Object, picture_url: String })
 
@@ -13,7 +14,7 @@ function del() {
 <template>
     <Head :title="post.title" />
     
-    <div class="p-4">
+    <Layout>
         <p class="mb-4">
             <Link :href="$route('blogposts.index')" class="text-gray-500">< Home</Link>
         </p>
@@ -38,6 +39,5 @@ function del() {
                 Delete
             </button>
         </p>
-    </div>
-  
+    </Layout>
 </template>

@@ -2,6 +2,7 @@
 import { Head } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3'
 import { useForm } from '@inertiajs/vue3'
+import Layout from '../Layout.vue'
 
 const form = useForm({
   title: null,
@@ -14,8 +15,7 @@ const form = useForm({
 
 <template>
     <Head title="New post" />
-    
-    <div class="p-4">
+    <Layout>
         <p class="mb-4">
             <Link :href="$route('blogposts.index')" class="text-gray-500">< Home</Link>
         </p>
@@ -53,7 +53,5 @@ const form = useForm({
 
             <input type="submit" value="Submit" class="border border-gray-400 p-2 rounded-md bg-gray-200 hover:bg-gray-300 mt-4">
         </form>
-
-    </div>
-
+    </Layout>
 </template>
