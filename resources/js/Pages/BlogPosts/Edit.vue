@@ -4,6 +4,7 @@ import { Link } from '@inertiajs/vue3'
 import { useForm } from '@inertiajs/vue3'
 import Layout from '../Layout.vue'
 import Title from '../Title.vue'
+import HomeLink from '../HomeLink.vue'
 
 const { post } = defineProps({ post: Object })
 
@@ -20,9 +21,7 @@ const form = useForm({
 <template>
     <Head title="Edit post" />
     <Layout>
-        <p class="mb-4">
-            <Link :href="$route('blogposts.index')" class="text-gray-500">< Home</Link>
-        </p>
+        <HomeLink></HomeLink>
 
         <Title>Edit post</Title>
         

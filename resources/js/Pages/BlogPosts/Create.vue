@@ -4,6 +4,7 @@ import { Link } from '@inertiajs/vue3'
 import { useForm } from '@inertiajs/vue3'
 import Layout from '../Layout.vue'
 import Title from '../Title.vue'
+import HomeLink from '../HomeLink.vue'
 
 const form = useForm({
   title: null,
@@ -17,9 +18,7 @@ const form = useForm({
 <template>
     <Head title="New post" />
     <Layout>
-        <p class="mb-4">
-            <Link :href="$route('blogposts.index')" class="text-gray-500">< Home</Link>
-        </p>
+        <HomeLink></HomeLink>
 
         <Title>New post</Title>
 

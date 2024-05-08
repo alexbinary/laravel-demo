@@ -4,6 +4,7 @@ import { Link } from '@inertiajs/vue3'
 import { router } from '@inertiajs/vue3'
 import Layout from '../Layout.vue'
 import Title from '../Title.vue'
+import HomeLink from '../HomeLink.vue'
 
 const props = defineProps({ post: Object, picture_url: String })
 
@@ -16,9 +17,7 @@ function del() {
     <Head :title="post.title" />
     
     <Layout>
-        <p class="mb-4">
-            <Link :href="$route('blogposts.index')" class="text-gray-500">< Home</Link>
-        </p>
+        <HomeLink></HomeLink>
 
         <p v-if="picture_url"><img :src="picture_url" width=200 /></p>
 
