@@ -16,7 +16,10 @@ class BlogPostController extends Controller
     {
         $posts = BlogPost::all();
         return Inertia::render('BlogPosts/Index', [
-            'posts' => $posts,
+            'posts' => $posts->map(fn($p) => [
+                'post' => $p,
+                'picture_url' => $p->picture ? asset('storage/' . $p->picture) : null,
+            ]),
         ]);
     }
 
