@@ -19,7 +19,7 @@ function del() {
     <Layout>
         <HomeLink></HomeLink>
 
-        <p v-if="picture_url"><img :src="picture_url" width=200 /></p>
+        <p v-if="picture_url"><img :src="picture_url" class="object-cover h-96 w-full mb-4"/></p>
 
         <Title>{{ post.title }}</Title>
         <p class="text-gray-500 mb-2">Category: {{ post.category }}</p>
